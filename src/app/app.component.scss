@@ -1,0 +1,36 @@
+.products{
+    background-color: rgb(202, 202, 201);
+    padding: 0 10px 10px 10px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: relative;
+    z-index: 10000;
+    
+    .dontxst{
+        display: none;
+
+        &.active{
+            display:block;
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+         
+            background-color: rgba(0, 0, 0, 0.541);
+        }
+        @media screen and (min-width:690px) {
+            .dontxst{
+                display: none;
+                background: none;
+            }
+        }
+    }
+    
+    div{
+        padding: 15px;
+        box-shadow: 2px 2px 8px 6px rgba(0, 0, 0, 0.17);
+        background-color: rgb(206, 203, 190);
+
+    }
+}
+

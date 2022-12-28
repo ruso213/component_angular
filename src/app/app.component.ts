@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input , OnDestroy} from '@angular/core';
+import { Productos } from './types/product.types';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'components_service';
+  toggle= false
+  imgParent = {
+    url:`https://www.w3schools.com/howto/img_avatar.png`,
+    size: `200`
+  };
+  
+  LoadedImg(img:String){
+    console.log(`la imagen es `,img);
+    
+  }
+
+  toggleBtn(){
+    this.toggle = !this.toggle
+    console.log(`asdfasd`);
+    
+  }
 }

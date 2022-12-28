@@ -1,0 +1,14 @@
+<div class="target" >
+    
+    <app-img [changeImg]="product.img"></app-img>
+    <div class="specifications">
+        
+        <h2> {{product.name}}</h2>
+        <p> ${{product.price}}  </p>
+    </div>
+    <div class="Add_Car">
+        <P>Añadir al carro</P>
+        <button  (click)="AddProduct()">Comprar</button>
+    </div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="showMobile">
+    <div class="showMobileTwo">
+        <button (click)="toggleBar()">
+            <img src="../../../assets/align-left-svgrepo-com.svg" height="30px" alt="">
+        </button>
+        <a  class="principal_name" href="">
+            <img src="../../../assets/store-home-svgrepo-com.svg"height="30px" alt="">
+            <p class="name">Ruso</p>
+            <p class="store">Store</p>
+        </a>
+        <button class="auto"  href="">
+            <img src="../../../assets/shopping-cart-svgrepo-com (1).svg" height="30px"alt="">
+        </button>
+    </div>
+    <div>
+        
+    </div>
+    
+    <div class="DONTxst" [class.active2]="navBar"> </div>
+        <div class="menu_bar" [class.active]="navBar">
+
+                <div class="buttonEXIST">
+                    <button (click)="toggleBar()"><img src="../../../assets/x-svgrepo-com.svg" height="30px" alt=""></button>
+                </div>
+                <div class="categories2">
+                    <p>categories</p>
+                    <ul class="categories">
+                        <li> <button class="button_categories"> all </button> </li>
+                        <li> <button class="button_categories"> clothes </button></li>
+                        <li> <button class="button_categories"> electronics </button></li>
+                        <li> <button class="button_categories"> toys </button></li>
+                        <li> <button class="button_categories"> food </button></li>
+                    </ul>
+            </div>
+
+        </div>
+    </div>
+<div class="showHideMobile">
+    <div class="showHideMobileTwo">
+        <a class="principal_name"href="">
+            <img src="../../../assets/store-home-svgrepo-com.svg"height="30px" alt="">
+            <p class="name">Ruso</p>
+            <p class="store">Store</p>        
+        </a>
+        <ul class="categories">
+            <li> <button class="button_categories"> all </button> </li>
+            <li> <button class="button_categories"> clothes </button></li>
+            <li> <button class="button_categories"> electronics </button></li>
+            <li> <button class="button_categories"> toys </button></li>
+            <li> <button class="button_categories"> food </button></li>
+        </ul>
+        <div class="right_menu">
+            <p class="name">Rodrigoibarramzt@gmail.com</p>
+            <button class="auto" (click)="toggleCar()"  href="">
+                <img src="../../../assets/shopping-cart-svgrepo-com (1).svg" height="20px"alt="">
+            </button>
+        </div>
+        
+    </div>
+    <div class="car" [class.activeCar]="carBar">
+        <h2>Costo total de carrito  </h2>
+    </div>
+</div>
