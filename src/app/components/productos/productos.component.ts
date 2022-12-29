@@ -1,109 +1,50 @@
-import { Component , Input, EventEmitter} from '@angular/core';
+import { Component , Input, EventEmitter , Output, OnInit} from '@angular/core';
 import { Productos } from '../../types/product.types';
-
+import { StoreService } from "../../service/store.service";
+import { ProductApiService } from "../../service/product-api.service";
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.scss']
 })
 export class ProductosComponent {
+  constructor(    
+    private storeService: StoreService,
+    private ProductService: ProductApiService
+    ){
+      this.shoppingCar= this.storeService.getShoppingCart()
+    }
   shoppingCar:Productos[]=[
-
+   
   ]
 
+  @Output() event = new EventEmitter<number>()
   products:Productos[]=[
-  
-  {
-      id:`1`,
-      img:`https://m.media-amazon.com/images/I/718U4GqkvPL._AC_SX425_.jpg`,
-      name:`juguetron`,
-      price:270
-    },
-    {
-      id:`2`,
-      img:`https://doto.vtexassets.com/arquivos/ids/223272/darkhouse-master-chief-verde-dotomexico-vista-dinamica.jpg?v=637957681339100000`,
-      name:`master chief `,
-      price:1070
-    },
-    {
-      id:`3`,
-      img:`https://m.media-amazon.com/images/I/51TH3cSL-iS._AC_SX425_.jpg`,
-      name:`deku`,
-      price:1300
-    },
-    {
-      id:`4`,
-      img:`https://m.media-amazon.com/images/I/61E3foqg+lL._AC_SY679_.jpg`,
-      name:`zero two`,
-      price:270
-    },
-    {
-      id:`5`,
-      img:`https://m.media-amazon.com/images/I/51TH3cSL-iS._AC_SX425_.jpg`,
-      name:`deku`,
-      price:1300
-    },
-    {
-      id:`6`,
-      img:`https://m.media-amazon.com/images/I/61E3foqg+lL._AC_SY679_.jpg`,
-      name:`zero two`,
-      price:270
-    },
-    {
-      id:`7`,
-      img:`https://m.media-amazon.com/images/I/51TH3cSL-iS._AC_SX425_.jpg`,
-      name:`deku`,
-      price:1300
-    },
-    {
-      id:`8`,
-      img:`https://m.media-amazon.com/images/I/61E3foqg+lL._AC_SY679_.jpg`,
-      name:`zero two`,
-      price:270
-    },
-    {
-      id:`9`,
-      img:`https://m.media-amazon.com/images/I/51TH3cSL-iS._AC_SX425_.jpg`,
-      name:`deku`,
-      price:1300
-    },
-    {
-      id:`10`,
-      img:`https://m.media-amazon.com/images/I/61E3foqg+lL._AC_SY679_.jpg`,
-      name:`zero two`,
-      price:270
-    },
-    {
-      id:`11`,
-      img:`https://m.media-amazon.com/images/I/51TH3cSL-iS._AC_SX425_.jpg`,
-      name:`deku`,
-      price:1300
-    },
-    {
-      id:`12`,
-      img:`https://m.media-amazon.com/images/I/61E3foqg+lL._AC_SY679_.jpg`,
-      name:`zero two`,
-      price:270
-    },
-    {
-      id:`13`,
-      img:`https://m.media-amazon.com/images/I/51TH3cSL-iS._AC_SX425_.jpg`,
-      name:`deku`,
-      price:1300
-    },
-    {
-      id:`14`,
-      img:`https://m.media-amazon.com/images/I/61E3foqg+lL._AC_SY679_.jpg`,
-      name:`zero two`,
-      price:270
-    },
+     {
+      price:10,
+      title: `idk`,
+      category:`sdfr`,
+      image:``,
+      description:``
+    }
   ]
+  ngOnInit(): void{
+    this.ProductService.getAllProducts().subscribe(
+      data => {
+        this.products = data
+      }
+    )
+  }
   ProductAdd(add:Productos){
     const productobuscado : Productos | undefined = this.products.find(item => item === add)
-    const productoIndex = this.products.findIndex(item => item === add)
     if(productobuscado){
-      this.shoppingCar.push(productobuscado)
+      this.storeService.addProducts(productobuscado)
+       
+      this.event.emit(this.storeService.getTotal())
+      
+      console.log(this.storeService);
       console.log(this.shoppingCar);
+     
       }
     }
   }

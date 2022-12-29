@@ -6,9 +6,9 @@
 <div class="products" >
     <div class="dontxst" [class.active]="toggle"></div>
     <header>
-        <app-nav (sendTrueFalse)="toggleBtn()"></app-nav>
+        <app-nav [price]="price" [carBar]="tglcar" (sendTrueFalse)="toggleBtn()"></app-nav>
     </header>
     <div>
-        <app-productos></app-productos>
+        <app-productos  (event)="eventRecive($event)"></app-productos>
     </div>
 </div>

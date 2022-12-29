@@ -1,4 +1,4 @@
-<div class="showMobile">
+<div class="showMobile" >
     <div class="showMobileTwo">
         <button (click)="toggleBar()">
             <img src="../../../assets/align-left-svgrepo-com.svg" height="30px" alt="">
@@ -8,9 +8,14 @@
             <p class="name">Ruso</p>
             <p class="store">Store</p>
         </a>
-        <button class="auto"  href="">
+        <button class="auto" (click)="toggleCar()"  href="">
+            <p class="counterProducts"> {{counterProducts}} </p>
+
             <img src="../../../assets/shopping-cart-svgrepo-com (1).svg" height="30px"alt="">
         </button>
+    </div>
+    <div class="car" [class.activeCar]="carBar">
+        <h2>Costo total de carrito {{price}} </h2>
     </div>
     <div>
         
@@ -52,12 +57,14 @@
         <div class="right_menu">
             <p class="name">Rodrigoibarramzt@gmail.com</p>
             <button class="auto" (click)="toggleCar()"  href="">
-                <img src="../../../assets/shopping-cart-svgrepo-com (1).svg" height="20px"alt="">
+                <p class="counterProducts"> {{counterProducts}} </p>
+                <img src="../../../assets/shopping-cart-svgrepo-com (1).svg" height="30px"alt="">
             </button>
         </div>
         
     </div>
-    <div class="car" [class.activeCar]="carBar">
-        <h2>Costo total de carrito  </h2>
+    
+    <div class="car"   [class.activeCar]="carBar">
+        <h2>Costo total de carrito {{price}} </h2>
     </div>
 </div>

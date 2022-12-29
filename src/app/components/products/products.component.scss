@@ -1,3 +1,4 @@
+
 .target{
     display: flex;
     flex-direction: column;
@@ -7,15 +8,41 @@
     background: rgb(190, 190, 190);
     border-radius: 10px;
     align-items: center;
-    min-height: 200px;
-    max-height: 300px;
+    height: 250px;
+    font-size: 12px;
+    
     h2{
         margin: 0;
     }
     p{
         margin: 0;
     }
-    
+    .specifications{
+        display: flex;
+        flex-direction: column;
+    align-items: flex-start;
+    }
+    .Add_Car{
+        display: flex;
+        button{
+            border: none;
+            background: none;
+            img{
+                clip-path: circle(50% at 50% 50%);
+                background-color: rgb(86, 97, 97);
+
+            }
+        }
+        button:hover{
+            border: none;
+            background: none;
+            img{
+                clip-path: circle(50% at 50% 50%);
+                background-color: rgb(64, 71, 71);
+
+            }
+        }
+    }
 }
 .target:hover{
     box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.21);    

@@ -9,15 +9,19 @@ import { Productos } from '../../types/product.types';
 })
 export class ProductsComponent {
   @Output() AddProducts = new EventEmitter<Productos>()
+  
+  @Output() evt2 = new EventEmitter()
+
   @Input() product:Productos={
-    name: ``,
+    title: ``,
     price: 0,
-    id:``,
-    img:``
+    category:``,
+    image:``,
+    description:``
   }
   
   AddProduct(){
-    this.AddProducts.emit(this.product)
     
+    this.AddProducts.emit(this.product)
   }
 }

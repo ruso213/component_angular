@@ -1,20 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Quicksand:wght@300&display=swap');
+
+    $color-casiTodo:rgb(206, 203, 190);
+    $color-carHoverColor:rgb(180, 180, 178);
+    $back-color: rgb(202, 202, 201);
+
+
 .showMobile{
     z-index: 10000;
-    background-color: rgb(202, 202, 201);
-    
+    background-color: $back-color;
+    .car{
+        display: flex;
+        cursor: pointer;
+
+        position: relative;
+        z-index: 10000;
+        align-items: center;
+        font-size: 9px;
+        padding: 10px;
+        position:fixed;
+        top: 90px;
+        left: 0;
+        right: 0;
+        width: 200px;
+        height: 50px;
+        bottom: 0;
+        background-color: $color-casiTodo;
+        box-shadow: 2px 2px 8px 6px rgba(0, 0, 0, 0.17);
+        display: flex;
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        
+    }
+    .car:hover{
+        background-color: $color-carHoverColor;
+
+    }
     .menu_bar{
         position: fixed;
+        z-index: 1000000;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgb(206, 203, 190);
+        background-color: $color-casiTodo;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         transform: translateX(-115%);
-        transition: all ease .3s;
+        transition: all ease .5s;
         width: 60%;
         box-shadow: 10px 0px 20px 20px rgba(0, 0, 0, 0.23);
 
@@ -36,7 +70,7 @@
                .button_categories{
                 padding: 5px;
                 border-radius: 5px;
-                background-color: #cecbbe;
+                background-color: $color-casiTodo;
                 border: none;
                 font-size: 15px;
                 color:rgba(0, 0, 0, 0.438) ;
@@ -44,7 +78,7 @@
                 
                 }
                 .button_categories:hover{
-                    background-color:rgb(190, 188, 176) ;
+                    background-color:$color-carHoverColor ;
                     box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.26);
                 }
         
@@ -74,7 +108,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-            background-color: rgb(206, 203, 190);
+            background-color: $color-casiTodo;
         box-shadow: 2px 2px 8px 6px rgba(0, 0, 0, 0.17);
         button{
             background: none;
@@ -82,6 +116,9 @@
         }
         .auto{
             margin-right: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
         }
         .principal_name{
             display: flex;
@@ -102,35 +139,39 @@
 
 .showHideMobile{
     padding:  13px 0 0 0 ;
-    background-color: rgb(202, 202, 201);
+    background-color: $back-color;
     .car{
         display: flex;
+        position: relative;
+        z-index: 10000;
+        cursor: pointer;
         align-items: center;
         font-size: 9px;
         padding: 10px;
         position:fixed;
-        top: 100px;
+        top: 90px;
         left: 0;
         right: 0;
         width: 200px;
         height: 50px;
         bottom: 0;
-        background-color: rgb(206, 203, 190);
+        background-color: $color-casiTodo;
         box-shadow: 2px 2px 8px 6px rgba(0, 0, 0, 0.17);
-
         display: flex;
-        transform: translateX(100vw);
+        transform: translateX(100%);
         
-        transition: all ease .3s;
-        &.activeCar{
-            transform: translateX(84vw);
-        }
+        transition: all ease .5s;
+        
+    }
+    .car:hover{
+        background-color: $color-carHoverColor;
+
     }
     .showHideMobileTwo{
         display: flex;
         justify-content: space-between;
         align-items: center;
-            background-color: rgb(206, 203, 190);
+            background-color: $color-casiTodo;
         box-shadow: 2px 2px 8px 6px rgba(0, 0, 0, 0.17);
         .name{
             color: rgb(85, 85, 85);
@@ -142,11 +183,25 @@
         }
         button{
             background: none;
+            font-size: 15px;
             border: none;
             cursor: pointer;
         }
         .auto{
             margin-right: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .counterProducts{
+                transform: translateX(40px) translateY(-7px);
+                background-color: #75cc86;
+                padding: 0 3px;
+                min-height: 10px;
+                min-width: 10px;
+                display: flex;
+                border-radius: 200px;
+                align-items: center;
+            }
         }
         .categories{
             display: flex;
@@ -161,7 +216,7 @@
                 
             }
             .button_categories:hover{
-                background-color:rgb(190, 188, 176) ;
+                background-color:   $color-carHoverColor ;
                 box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.26);
             }
         }
@@ -185,19 +240,259 @@
     }
 }
 
+
 @media screen and (min-width: 300px ) and (max-width: 690px){
     .showMobile{
         display: block;
+        .car{
+            display: block;
+        }
+            
+    
     }
     .showHideMobile{
         display: none;
+        .car{
+            display: none;
+        }
     }
 }
-@media screen and (min-width: 690px ) {
+@media screen and (min-width: 680px )and (max-width: 880px ) {
     .showMobile{
         display: none;
+        .car{
+            display: none;
+        }
+        
     }
     .showHideMobile{
         display: block;
+        .car{
+            display: block;
+        }
     }
+}
+@media screen and (min-width:880px ){
+    .showMobile{
+        display: none;
+        .car{
+            display: none;
+        }
+           
+    }
+    .showHideMobile{
+        display: block;
+        .car{
+            display: block;
+        }
+    }
+}
+
+@media screen and (min-width: 680px ) and (max-width: 730px){
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(70vw);
+        }
+    }}
+}
+@media screen and (min-width: 730px ) and (max-width: 780px){
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(74vw);
+        }
+    }}
+}
+@media screen and (min-width: 780px ) and (max-width: 860px){
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(77vw);
+        }
+    }}
+}
+@media screen and (min-width: 860px ) and (max-width: 920px){
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(77vw);
+        }
+    }}
+}
+@media screen and (min-width: 920px ) and (max-width: 980px){
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(78vw);
+        }
+    }}
+}
+@media screen and (min-width: 980px ) and (max-width: 1040px){
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(80vw);
+        }
+    }}
+}
+@media screen and (min-width: 1040px ) {
+    .showHideMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(82vw);
+        }
+    }}
+}
+@media screen and (min-width: 400px ) and (max-width: 550px){
+    .showMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(60vw);
+        }
+    }}
+}
+@media screen and (min-width: 300px ) and (max-width: 350px){
+    .showMobile{
+        display: block;
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(37vw);
+        }
+    }}
+}
+@media screen and (min-width: 350px ) and (max-width: 400px){
+    .showMobile{
+        display: block;
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(44vw);
+        }
+    }}
+}
+@media screen and (min-width: 400px ) and (max-width: 450px){
+    .showMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(53vw);
+        }
+    }}
+}
+@media screen and (min-width: 450px ) and (max-width: 510px){
+    .showMobile{
+        display: block;
+
+    .car{
+            
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(56vw);
+        }
+    }}
+}
+@media screen and (min-width: 510px ) and (max-width: 550px){
+    .showMobile{
+        display: block;
+
+    .car{
+        
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(62vw);
+        }
+    }}
+}
+@media screen and (min-width: 550px ) and (max-width: 600px){
+    .showMobile{
+        display: block;
+
+    .car{
+        
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(66vw);
+        }
+    }}
+}
+@media screen and (min-width: 600px ) and (max-width: 680px){
+    .showMobile{
+        display: block;
+
+    .car{
+        
+        transform: translateX(100vw);
+        
+        transition: all ease .5s;
+        &.activeCar{
+            transform: translateX(69vw);
+        }
+    }}
 }

@@ -1,6 +1,7 @@
 export interface Productos{
-    name: string,
+    title: string,
     price: number,
-    id:string,
-    img:string
+    description:string,
+    image:string
+    category:string
 }

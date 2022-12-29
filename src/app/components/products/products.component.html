@@ -1,14 +1,14 @@
 <div class="target" >
     
-    <app-img [changeImg]="product.img"></app-img>
+    <app-img [changeImg]="product.image"></app-img>
     <div class="specifications">
         
-        <h2> {{product.name}}</h2>
+        <h2 > {{product.title | slice : 0:25}}</h2>
         <p> ${{product.price}}  </p>
     </div>
     <div class="Add_Car">
         <P>Añadir al carro</P>
-        <button  (click)="AddProduct()">Comprar</button>
+        <button  (click)="AddProduct()" ><img height="40px" src="../../../assets/shop-cart-svgrepo-com (8).svg" alt=""></button>
     </div>
 
 </div>
